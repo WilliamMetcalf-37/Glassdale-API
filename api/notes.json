@@ -1,3 +1,16 @@
 {
-  "notes": [];
+  "notes": [
+    {
+      "date": 1576013039283,
+      "title": "sdf",
+      "details": "sdf",
+      "id": 1
+    },
+    {
+      "date": 1576013150311,
+      "title": "asdasd",
+      "details": "asdasda",
+      "id": 2
+    }
+  ]
 }

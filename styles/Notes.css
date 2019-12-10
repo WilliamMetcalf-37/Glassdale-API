@@ -1,0 +1,21 @@
+.noteFormContainer{
+  border: 1px black solid;
+  padding: 2px;
+  
+}
+.addANote{
+ display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+}
+.containerOfNotes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px black solid;
+}
+.note__card{
+  border: 1px black solid;
+  padding: 2px;
+  align-content: center;
+}

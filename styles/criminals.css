@@ -4,9 +4,8 @@ flex-wrap: wrap;
 justify-content: space-evenly;
 }
 .criminal__card{
-  border: 1px solid black;
+  border: 1px solid goldenrod;
   padding: 1px;
   margin: 1px;
-  max-width: 20%;
-  flex-basis: 15%
+  flex-basis: 32%;
 }

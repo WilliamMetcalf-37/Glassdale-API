@@ -1,1 +1,7 @@
-@import 'criminals.css'
+@import 'criminals.css';
+@import 'Notes.css';
+
+.filters{
+display: flex;
+justify-content: space-evenly;
+}
