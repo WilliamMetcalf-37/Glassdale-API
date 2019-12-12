@@ -9,6 +9,7 @@ import { getNotes } from "./notes/NoteDataProvider.js"
 import NoteListComponent from "./notes/NoteList.js"
 import { getWitnesses } from "./witnesses/witnessDataProvider.js"
 import witnessListComponent from "./witnesses/witnessList.js"
+import { editNoteFunction } from "./notes/EditNote.js"
 
 getCriminals()
 .then(getConvictions)
@@ -20,3 +21,4 @@ getCriminals()
 .then(NoteFormComponent)
 .then(getWitnesses)
 .then(witnessListComponent)
+.then(editNoteFunction)

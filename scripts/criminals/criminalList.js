@@ -34,7 +34,7 @@ const CriminalListComponent = () =>{
   
 
 eventHub.addEventListener("click", clickEvent => {
-if(clickEvent.target.id.startsWith("button--")){
+if(clickEvent.target.id.startsWith("associate--")){
   const dialogSiblingSelector = `#${clickEvent.target.id}+dialog`
              const theDialog = document.querySelector(dialogSiblingSelector)
              theDialog.showModal()

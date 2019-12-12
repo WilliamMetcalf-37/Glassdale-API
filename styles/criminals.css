@@ -5,6 +5,8 @@ justify-content: space-evenly;
 }
 .criminal__card{
   border: 1px solid goldenrod;
+  border-radius: 25%;
+  text-align: center;
   padding: 1px;
   margin: 1px;
   flex-basis: 32%;

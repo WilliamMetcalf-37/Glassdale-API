@@ -4,6 +4,25 @@ const contentTarget = document.querySelector(".filters__officer");
 
 const officerSelect = () => {
   const officers = useOfficers();
+
+  // eventHub.addEventListener("change", changeEvent =>{
+  //   if(changeEvent.target.classList.contains("crimeSelect")){
+  //     const selectedOfficer = changeEvent.target.value
+
+  //     const officer = new CustomEvent("crimeSelected", {
+  //       detail:{
+  //         AresstingOfficer: selectedOfficer
+  //       }
+  //     })
+  //     eventHub.dispatchEvent(officer)
+  //   }
+  // })
+
+
+
+
+
+
   const render = officerCollection => {
     /*
        Use interpolation here to invoke the map() method on

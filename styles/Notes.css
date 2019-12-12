@@ -17,7 +17,7 @@ justify-content: space-evenly;
 .note__card{
   border: 1px black solid;
   padding: 2px;
-  align-content: center;
+  text-align: center;
 }
 .hideButton{
   display: none;
