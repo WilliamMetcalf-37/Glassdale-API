@@ -25,7 +25,7 @@ const NoteFormComponent = () => {
         }
     })
 
-    
+
     eventHub.addEventListener("click", clickEvent => {
         if(clickEvent.target.id === "showNotes"){
             const message = new CustomEvent("showNoteButtonClicked")
@@ -38,13 +38,17 @@ const NoteFormComponent = () => {
     const render = () => {
         contentTarget.innerHTML = `
         <h2>Add A Note:</h2>
-        <div class="addANote">
+        <div class="addANote" id="addANote">
             <label> Note Title</label>
             <input type="text" id="note__Title">
             <label> Note Description</label>
             <input type="text" id="note__Details"></input>
             <button id="saveNote">Save Note</button>
             <button id="showNotes">Show Notes</button>
+            <button id ="hideNotes" class="hideButton">Hide Notes</button>
+        </div>
+        <div class="witnessButton">
+            <button class="button--Witness">Witness Statements</button>
         </div>
         `
     }

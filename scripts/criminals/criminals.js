@@ -1,6 +1,5 @@
 const criminalComponent = (criminal) => {
 
-
 return `
 <section class="criminal__card">
   <div>${criminal.name}</div>
@@ -13,15 +12,11 @@ return `
   <dialog class='dialog--known_associates' id="details--${criminal.id}">
     <h4>Known Associates</h4>
     <div>
-   ${criminal.known_associates.map(ass =>{
-     return ass.name
-   }).join(", ")}
+   ${criminal.known_associates.map(ass => ass.name).join(", ")}
     </div>
     <h4>Known Alibi</h4>
     <div>
-    ${criminal.known_associates.map(ass =>{
-      return ass.alibi
-    }).join(", ")}
+    ${criminal.known_associates.map(ass => ass.alibi).join(", ")}
     </div>
     <button class="button--close">Close Dialog</button>
   </dialog>

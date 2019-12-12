@@ -1,0 +1,10 @@
+.witnessCollection{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.witness__Card{
+  border: 1px solid goldenrod;
+  padding: 3px;
+  flex-basis: 30%;
+}

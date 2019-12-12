@@ -7,18 +7,16 @@ import officerSelect from "./officers/Officer.js"
 import NoteFormComponent from "./notes/NoteForm.js"
 import { getNotes } from "./notes/NoteDataProvider.js"
 import NoteListComponent from "./notes/NoteList.js"
-import initializeDetailButtonEvents from "./dialog.js"
+import { getWitnesses } from "./witnesses/witnessDataProvider.js"
+import witnessListComponent from "./witnesses/witnessList.js"
 
-getCriminals().then(
-  () => CriminalListComponent()
-).then(initializeDetailButtonEvents)
-
-getConvictions().then(
-  () => ConvictionSelect()
-).then()
-getOfficers().then(
-  () => officerSelect()
-)
-
-NoteListComponent()
-NoteFormComponent()
+getCriminals()
+.then(getConvictions)
+.then(CriminalListComponent)
+.then(ConvictionSelect)
+.then(getOfficers)
+.then(officerSelect)
+.then(NoteListComponent)
+.then(NoteFormComponent)
+.then(getWitnesses)
+.then(witnessListComponent)

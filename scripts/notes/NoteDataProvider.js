@@ -21,12 +21,29 @@ export const saveNote = note => {
   .then(parsedNotes => {
     
     notes = parsedNotes.slice()
-  }
-    
-    
-  
-  )
-  }
+  })}
+
+export const deleteNote = noteId => {
+  return fetch(`http://localhost:3000/notes/${noteId}`, {
+      method: "DELETE"
+  })
+      .then(getNotes)
+}
+export const editNote = noteId =>{
+  return fetch(`http://localhost:3000/notes/${noteId}`, {
+  method: "PUT",
+  headers: {
+      "Content-Type": "application/json",
+  },
+  body: JSON.stringify(noteId)
+})
+
+}
+
+
+
+
+
 
   export const useNotes = () =>{
     return notes

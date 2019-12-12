@@ -29,28 +29,24 @@ const CriminalListComponent = () =>{
     
   })
 
-eventHub.addEventListener("associateButtonClicked", clickEvent => {
-const buttonSelected = clickEvent.detail.associate
-console.log(buttonSelected)
-const dialogSiblingSelector = `#${theEvent.target.id}+dialog`
-        const theDialog = document.querySelector(dialogSiblingSelector)
-        console.log(dialogSiblingSelector)
-              theDialog.showModal()
 
-// const allDetailButtons = document.querySelectorAll("button[id^='button--']")
+
   
-//   for (const btn of allDetailButtons) {
-//     btn.addEventListener(
-//       "associateButtonClicked",
-//       theEvent => {
-//         const dialogSiblingSelector = `#${theEvent.target.id}+dialog`
-//         const theDialog = document.querySelector(dialogSiblingSelector)
-//         console.log(dialogSiblingSelector)
-//               theDialog.showModal()
-//           }
-//       )
-//   }
-})
+
+eventHub.addEventListener("click", clickEvent => {
+if(clickEvent.target.id.startsWith("button--")){
+  const dialogSiblingSelector = `#${clickEvent.target.id}+dialog`
+             const theDialog = document.querySelector(dialogSiblingSelector)
+             theDialog.showModal()
+         }
+
+  if(clickEvent.target.classList.contains("button--close")){
+    const theDialog = clickEvent.target.parentNode
+    theDialog.close();
+  }
+}
+
+)
 
 
 
