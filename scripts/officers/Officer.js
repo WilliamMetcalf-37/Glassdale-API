@@ -1,22 +1,22 @@
 import { useOfficers } from "./OfficerProvider.js";
 
 const contentTarget = document.querySelector(".filters__officer");
-
+const eventHub = document.querySelector(".container")
 const officerSelect = () => {
   const officers = useOfficers();
 
-  // eventHub.addEventListener("change", changeEvent =>{
-  //   if(changeEvent.target.classList.contains("crimeSelect")){
-  //     const selectedOfficer = changeEvent.target.value
+  eventHub.addEventListener("change", changeEvent =>{
+    if(changeEvent.target.classList.contains("officerSelect")){
+      const selectedOfficer = changeEvent.target.value
 
-  //     const officer = new CustomEvent("crimeSelected", {
-  //       detail:{
-  //         AresstingOfficer: selectedOfficer
-  //       }
-  //     })
-  //     eventHub.dispatchEvent(officer)
-  //   }
-  // })
+      const officer = new CustomEvent("officerSelected", {
+        detail:{
+          arrestingOfficer: selectedOfficer
+        }
+      })
+      eventHub.dispatchEvent(officer)
+    }
+  })
 
 
 
@@ -31,7 +31,7 @@ const officerSelect = () => {
    */
 
     contentTarget.innerHTML = `
-       <select class="dropdown" id="officerSelect">
+       <select class="dropdown officerSelect select-css" id="officerSelect">
            <option value="0">Please select an officer...</option>
            ${officers
              .map(officer => `<option value="${officer}" id="officer--${officer}">${officer}</option>`)

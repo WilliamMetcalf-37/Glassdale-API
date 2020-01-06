@@ -37,13 +37,9 @@ export const editNote = note =>{
       "Content-Type": "application/json",
   },
   body: JSON.stringify(note)
-})
+}).then(getNotes)
 
 }
-
-
-
-
 
 
   export const useNotes = () =>{

@@ -40,7 +40,7 @@ const ConvictionSelect = () => {
             Look back at the example provided above.
         */
         contentTarget.innerHTML = `
-            <select class="dropdown crimeSelect" id="crimeSelect">
+            <select class="dropdown crimeSelect select-css" id="crimeSelect">
                 <option value="0">Please select a crime...</option>
                 ${convictions.map(crime => `<option value="${crime}">${crime}</option>`).join("")}
 

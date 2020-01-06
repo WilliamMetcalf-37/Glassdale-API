@@ -1,8 +1,8 @@
 const witnessComponent = wit =>{
   return `
   <section class = "witness__Card">
-  <div>${wit.name}</div>
-  <div>${wit.statements}</div>
+  <div>Who: ${wit.name}</div>
+  <div>What: ${wit.statements}</div>
   </section>`
 }
 

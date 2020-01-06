@@ -12,6 +12,7 @@ export const editNoteFunction = () => {
       const foundNote = notes.find(note =>{
         return note.id === parseInt( id ,10)
       })
+      
       console.log(foundNote)
       const title = foundNote.title;
       const detail = foundNote.details;

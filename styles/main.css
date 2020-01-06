@@ -1,9 +1,16 @@
 @import 'criminals.css';
 @import 'Notes.css';
 @import 'witnesses.css';
+@import 'select.css';
 
 
 .filters{
 display: flex;
 justify-content: space-evenly;
+margin: 2px;
+padding: 2px;
 }
+.title{
+  text-align: center;
+}
+

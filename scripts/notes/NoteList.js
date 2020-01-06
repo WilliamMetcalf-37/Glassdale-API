@@ -18,11 +18,17 @@ const NoteListComponent = () => {
       render(notes);
     });
   });
+
+
   // delete
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteButton--")) {
       const [prefix, id] = clickEvent.target.id.split("--");
-      deleteNote(id).then(() => render(useNotes()));
+      deleteNote(id).then(() => {
+        const theNewNotes = useNotes()
+        render(theNewNotes)
+      });
+      console.log(useNotes())
     }
   });
 
@@ -41,13 +47,18 @@ const NoteListComponent = () => {
     const editDetail = document.querySelector("#note__Details")
     editDetail.value = detail
     
-      contentElement.innerHTML = ""
   });
+eventHub.addEventListener("noteHasBeenEdited", event => {
+        const updatedNotes = useNotes()
+        render(updatedNotes)
+})
+eventHub.addEventListener("noteHasBeenSaved", event => {
+        const updatedNotes = useNotes()
+        render(updatedNotes)
+})
 
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("button--save")) {
-    }
-  });
+
+    ;
 
   const render = notesCollection => {
     console.log(contentElement);

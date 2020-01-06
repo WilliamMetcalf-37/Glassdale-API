@@ -1,24 +1,36 @@
 .noteFormContainer{
-  border: 1px black solid;
-  padding: 2px;
+  border: 1px solid darkviolet;
+  border-radius: 10px;
   
 }
 .addANote{
  display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
+
+
 }
 .containerOfNotes{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border: 1px black solid;
+
 }
 .note__card{
   border: 1px black solid;
-  padding: 2px;
+  border-radius: 10px;
   text-align: center;
 }
 .hideButton{
   display: none;
+}
+.NoteFormTitle{
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+  color: whitesmoke;
+  background-color: gray;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  margin-bottom: 5px;
 }

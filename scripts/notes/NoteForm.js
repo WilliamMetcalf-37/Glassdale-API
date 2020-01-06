@@ -1,4 +1,4 @@
-import { saveNote, editNote } from "./NoteDataProvider.js"
+import { saveNote, editNote, useNotes } from "./NoteDataProvider.js"
 import NoteListComponent from "./NoteList.js"
 
 const contentTarget = document.querySelector(".noteFormContainer")
@@ -6,10 +6,14 @@ const eventHub = document.querySelector(".container")
 
 
 const NoteFormComponent = () => {
-
+const resetNoteFields = () =>{
+    document.querySelector("#note__id").value = ""
+    document.querySelector("#note__Title").value = ""
+    document.querySelector("#note__Details").value = ""
+}
     eventHub.addEventListener("click", clickEvent => {
         const hiddenId = document.querySelector("#note__id").value
-        if(hiddenId === null){
+        if(hiddenId === ""){
 
             if (clickEvent.target.id === "saveNote") {
       
@@ -22,10 +26,14 @@ const NoteFormComponent = () => {
                 }
       
                 // Change API state and application state
-                saveNote(newNote).then(NoteListComponent)
+               saveNote(newNote).then(()=>{
+                   eventHub.dispatchEvent(new CustomEvent("noteHasBeenSaved"))
+               }).then(resetNoteFields)
     
             }
-        }else{
+        }
+        // EditNote
+        else{
             if (clickEvent.target.id === "saveNote") {
       
                 // Make a new object representation of a note
@@ -38,15 +46,16 @@ const NoteFormComponent = () => {
                 }
       
                 // Change API state and application state
-                editNote(newNote)
+                editNote(newNote).then(()=> eventHub.dispatchEvent(new CustomEvent("noteHasBeenEdited")))
+                .then(resetNoteFields)
     
             }
 
             
-        }
+        
 
-    })
-    
+    }
+})
 
 
     eventHub.addEventListener("click", clickEvent => {
@@ -55,22 +64,25 @@ const NoteFormComponent = () => {
             eventHub.dispatchEvent(message)
         }
     })
+ 
 
 
 
     const render = () => {
         contentTarget.innerHTML = `
-        <h2>Add A Note:</h2>
+        <div class="NoteFormTitle">Add A Note:</div>
         <div class="addANote" id="addANote">
             <input type="hidden" id="note__id"/>
-            <label> Note Title</label>
+            <div class="noteTitle">
+            <label> Note Title:</label>
             <input type="text" id="note__Title">
-            <label> Note Description</label>
+            </div>
+            <div class="noteDescription">
+            <label> Note Description:</label>
             <input type="text" id="note__Details"></input>
+            </div>
             <button id="saveNote">Save Note</button>
-            
             <button id="showNotes">Show Notes</button>
-            <button id ="hideNotes" class="hideButton">Hide Notes</button>
         </div>
         <div class="witnessButton">
             <button class="button--Witness">Witness Statements</button>
@@ -79,6 +91,6 @@ const NoteFormComponent = () => {
     }
 
     render()
-}
 
+}
 export default NoteFormComponent
