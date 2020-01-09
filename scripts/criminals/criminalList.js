@@ -15,49 +15,25 @@ const CriminalListComponent = () =>{
 
    const criminal = useCriminals()
   const officer = useOfficers()
-  // eventHub.addEventListener("crimeSelected", event => {
-   
-  //   const convictionName = event.detail.conviction
-  //   console.log(convictionName)
-  //   const filteredCriminals = criminal.filter((criminal) => {
-  //     if(criminal.conviction === convictionName)
-  //     {
-  //       return criminal
-  //     }     
-  //   })  
-  //   render(filteredCriminals) 
-  // })
 
-  // eventHub.addEventListener("officerSelected", event => {
-   
-  //   const arrestingOfficer = event.detail.arrestingOfficer
-  //   const filteredOfficers = criminal.filter((criminal) => {
-  //     if(criminal.arrestingOfficer.toLowerCase() === arrestingOfficer.toLowerCase())
-  //     {
-  //       return officer
-  //     }     
-  //   })  
-  //   render(filteredOfficers) 
-  // })
 
 eventHub.addEventListener("filter", clickEvent =>{
 
 
   const filteredCriminals = criminal.filter((criminal)=>{
-    if(clickEvent.detail.officer === "0"){
       
-    }
-    if(criminal.conviction.toLowerCase() === clickEvent.detail.crime.toLowerCase() &&
-      criminal.arrestingOfficer.toLowerCase()=== clickEvent.detail.officer.toLowerCase())
-     {
-       return criminal
-     }
+      if(criminal.conviction.toLowerCase() === clickEvent.detail.crime.toLowerCase() &&
+        criminal.arrestingOfficer.toLowerCase()=== clickEvent.detail.officer.toLowerCase())
+       {
+         return criminal
+       }
+      
+      
     })
+   
     render(filteredCriminals)
+  })
 
-
-
-})
   
 
 eventHub.addEventListener("click", clickEvent => {
